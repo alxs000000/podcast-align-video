@@ -1,0 +1,7 @@
+name: podcast-align-video-mfa
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - montreal-forced-aligner=3.4.1
+  - praatio=6.2.0

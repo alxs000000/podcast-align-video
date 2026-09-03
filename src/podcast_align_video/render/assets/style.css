@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Geist";
+  src: url("fonts/Geist-590.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 590;
+  font-display: block;
+}
+
+:root {
+  --ink: #f5f0e7;
+  --accent: #ffc867;
+  --accent-ink: #251707;
+  --background: #090b0c;
+}
+
+* { box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--ink);
+  font-family: "Geist", Arial, sans-serif;
+}
+
+button { color: inherit; }
+
+.player-shell {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #090b0c;
+}
+
+.subtitle-stage {
+  height: 100vh;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 5.4rem clamp(1.5rem, 7vw, 8rem) 10.5rem;
+}
+
+.subtitle-frame {
+  width: min(100%, 92rem);
+  height: 100%;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.subtitle-line {
+  width: 100%;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.subtitle-line.is-current {
+  color: #f6f2e9;
+  font-size: clamp(3.5rem, 4.6vw, 4.75rem);
+  font-weight: 590;
+  line-height: 1.22;
+  letter-spacing: -0.04em;
+  text-shadow: 0 0.12em 1em rgba(0, 0, 0, 0.6);
+}
+
+.subtitle-word {
+  appearance: none;
+  display: inline;
+  margin: 0;
+  padding: 0.03em 0.08em 0.07em;
+  border: 0;
+  border-radius: 0.16em;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+}

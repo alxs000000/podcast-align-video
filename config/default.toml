@@ -1,0 +1,60 @@
+schema_version = 1
+language = "en"
+data_root = "~/.local/share/podcast-align-video"
+
+[runtime]
+ffmpeg = "ffmpeg"
+ffprobe = "ffprobe"
+device = "cuda:0"
+
+[models.cohere]
+id = "CohereLabs/cohere-transcribe-03-2026"
+revision = "b1eacc2686a3d08ceaae5f24a88b1d519620bc09"
+license_url = "https://huggingface.co/CohereLabs/cohere-transcribe-03-2026"
+size_gib = 3.9
+path = ""
+
+[models.qwen_asr]
+id = "Qwen/Qwen3-ASR-0.6B"
+revision = "5eb144179a02acc5e5ba31e748d22b0cf3e303b0"
+license_url = "https://huggingface.co/Qwen/Qwen3-ASR-0.6B"
+size_gib = 1.8
+path = ""
+
+[models.qwen_aligner]
+id = "Qwen/Qwen3-ForcedAligner-0.6B"
+revision = "c7cbfc2048c462b0d63a45797104fc9db3ad62b7"
+license_url = "https://huggingface.co/Qwen/Qwen3-ForcedAligner-0.6B"
+size_gib = 1.8
+path = ""
+
+[stt]
+window_seconds = 28.0
+overlap_seconds = 4.0
+batch_size = 2
+vad_chunk_seconds = 120.0
+vad_padding_seconds = 0.35
+vad_merge_gap_seconds = 0.9
+quarantine_max_seconds = 12.0
+
+[alignment]
+max_batch_items = 4
+max_padded_seconds = 80.0
+mfa_acoustic_model = "english_mfa"
+mfa_dictionary = "english_mfa"
+mfa_g2p_model = "english_us_mfa"
+mfa_jobs = 2
+
+[renderer]
+width = 1920
+height = 1080
+fps = 30
+segment_seconds = 1800.0
+encoder = "libx264"
+preset = "veryfast"
+crf = 20
+pixel_format = "yuv420p"
+audio_bitrate = "192k"
+
+[speech_cut]
+threshold_seconds = 5.0

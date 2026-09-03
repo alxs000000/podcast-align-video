@@ -1,0 +1,29 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-and-integration:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install --disable-pip-version-check -r envs/core-lock.txt
+      - run: python -m pip install --disable-pip-version-check --no-deps -e .
+      - run: python -m pip install --disable-pip-version-check ruff==0.12.11
+      - run: python -m playwright install --with-deps chromium
+      - run: ruff check src tests scripts
+      - run: python -m compileall -q src tests
+      - run: python -m pytest
+        env:
+          PAV_RUN_RENDER_INTEGRATION: "1"
+          PAV_RUN_SPEECH_CUT_INTEGRATION: "1"

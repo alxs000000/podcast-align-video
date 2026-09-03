@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "podcast-align-video"
+version = "0.1.0"
+description = "Turn English podcast audio or a public YouTube video into a word-aligned hybrid subtitle video."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { file = "LICENSE" }
+authors = []
+dependencies = [
+  "huggingface-hub==0.35.3",
+  "playwright==1.55.0",
+  "yt-dlp==2026.8.19",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==8.4.2"]
+
+[project.scripts]
+podcast-align-video = "podcast_align_video.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/podcast_align_video"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"LICENSES/OFL-1.1.txt" = "podcast_align_video/_licenses/OFL-1.1.txt"
+"THIRD_PARTY_NOTICES.md" = "podcast_align_video/_licenses/THIRD_PARTY_NOTICES.md"
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
