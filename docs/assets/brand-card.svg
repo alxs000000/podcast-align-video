@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title description">
+  <title id="title">podcast-align-video</title>
+  <desc id="description">Audio waveform beside highlighted subtitle blocks with the tagline Audio in. Word-aligned video out.</desc>
+  <rect width="1280" height="640" fill="#090b0c"/>
+  <g transform="translate(96 186)">
+    <rect x="0" y="104" width="24" height="72" rx="12" fill="#f5f0e7"/>
+    <rect x="40" y="72" width="24" height="136" rx="12" fill="#f5f0e7"/>
+    <rect x="80" y="32" width="24" height="216" rx="12" fill="#f5f0e7"/>
+    <rect x="120" y="64" width="24" height="152" rx="12" fill="#f5f0e7"/>
+    <rect x="160" y="96" width="24" height="88" rx="12" fill="#f5f0e7"/>
+    <rect x="226" y="38" width="168" height="52" rx="18" fill="#f5f0e7"/>
+    <rect x="226" y="114" width="168" height="52" rx="18" fill="#ffc867"/>
+    <rect x="226" y="190" width="168" height="52" rx="18" fill="#f5f0e7"/>
+  </g>
+  <g font-family="Geist, Inter, ui-sans-serif, system-ui, sans-serif">
+    <text x="560" y="270" fill="#f5f0e7" font-size="68" font-weight="650" letter-spacing="-2.5">podcast-align-video</text>
+    <text x="562" y="336" fill="#ffc867" font-size="31" font-weight="560">Audio in. Word-aligned video out.</text>
+    <line x1="562" y1="382" x2="1138" y2="382" stroke="#2a2e30" stroke-width="2"/>
+    <text x="562" y="430" fill="#a8a49c" font-size="18" font-weight="540" letter-spacing="2.4">OPEN SOURCE  ·  LINUX / WSL2  ·  NVIDIA CUDA</text>
+  </g>
+</svg>

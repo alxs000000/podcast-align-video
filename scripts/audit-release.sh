@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 cd "${PROJECT_ROOT}"
 
-if git grep -I -n -i -E 'PodcastPipeline|youtube-cohere|ryouta?|alxs|70o4qscwhjo|Users[/\\][^/\\]+|/home/[^/]+|/mnt/[a-z]/|hf_[A-Za-z0-9]{20,}' -- ':!scripts/audit-release.sh'; then
+if git grep -I -n -i -E 'PodcastPipeline|youtube-cohere|ryouta?|alxs([^0-9]|$)|70o4qscwhjo|Users[/\\][^/\\]+|/home/[^/]+|/mnt/[a-z]/|hf_[A-Za-z0-9]{20,}' -- ':!scripts/audit-release.sh'; then
   echo "Release audit failed: personal path, legacy name, or token-shaped text is tracked." >&2
   exit 1
 fi

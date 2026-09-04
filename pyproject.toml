@@ -16,6 +16,11 @@ dependencies = [
   "yt-dlp==2026.8.19",
 ]
 
+[project.urls]
+Homepage = "https://github.com/alxs000000/podcast-align-video"
+Repository = "https://github.com/alxs000000/podcast-align-video"
+Issues = "https://github.com/alxs000000/podcast-align-video/issues"
+
 [project.optional-dependencies]
 dev = ["pytest==8.4.2"]
 
