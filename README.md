@@ -5,6 +5,10 @@
 <h1 align="center">podcast-align-video</h1>
 
 <p align="center">
+  English · <a href="docs/README.ja.md" lang="ja">日本語</a> · <a href="docs/README.zh-CN.md" lang="zh-CN">简体中文</a> · <a href="docs/README.ko.md" lang="ko">한국어</a> · <a href="docs/README.es.md" lang="es">Español</a>
+</p>
+
+<p align="center">
   <strong>Audio in. Word-aligned video out.</strong><br>
   Turn English audio or one public YouTube video into a precise, word-highlighted H.264 video—without recording a browser in real time.
 </p>
@@ -28,6 +32,8 @@
     <a href="docs/DEMO.md">provenance and measurements</a>
   </sub>
 </p>
+
+Follow spoken English with your eyes: the word being spoken lights up in gold as the audio plays. Use your own English audio or one public YouTube video to make a video you can watch in your usual video player. v0.1 generates English subtitles only; it does not translate them. The guides above explain the tool and setup in your language.
 
 ## Why hybrid rendering?
 
@@ -58,13 +64,20 @@ v0.1 targets Linux or WSL2 with an NVIDIA CUDA GPU. Install FFmpeg/FFprobe with 
 git clone https://github.com/alxs000000/podcast-align-video.git
 cd podcast-align-video
 ./scripts/setup.sh
+export PATH="$HOME/.local/bin:$PATH"
 ```
 
-Cohere Transcribe is gated. Request and accept access on the [official model page](https://huggingface.co/CohereLabs/cohere-transcribe-03-2026), authenticate with your own Hugging Face token, then fetch the pinned models:
+The `export PATH` applies to the current terminal. Repeat it in a new terminal if the command is not found. By default, models and environments live under `~/.local/share/podcast-align-video`.
+
+Cohere Transcribe is gated. Request and accept access on the [official model page](https://huggingface.co/CohereLabs/cohere-transcribe-03-2026), then fetch the pinned models using a read token from your approved Hugging Face account. In a Bash terminal, enter the token without displaying it:
 
 ```bash
 cp config/default.toml config/local.toml
+read -r -s -p 'Hugging Face token: ' HF_TOKEN
+printf '\n'
+export HF_TOKEN
 podcast-align-video models fetch --config config/local.toml
+unset HF_TOKEN
 podcast-align-video doctor --config config/local.toml
 ```
 
